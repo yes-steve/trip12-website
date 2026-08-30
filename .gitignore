@@ -5,3 +5,4 @@ logos/
 *.js
 !site/**
 LAUNCH-GUIDE.md
+*.bundle
