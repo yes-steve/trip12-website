@@ -227,9 +227,17 @@ home = f"""
 
     <section>
       <div class="wrap center">
+        <h2>Why we exist</h2>
+        <p class="section-intro">We're Isabella's family. It took five years, dozens of specialists, and tens of thousands of dollars in tests before a single Zoom call gave us her diagnosis: a rare deletion in her TRIP12 gene &mdash; with no cure, almost no research, and no state program she qualified for. Our community carried us through what insurance wouldn't cover. This foundation is how we carry the next family.</p>
+        <a class="btn btn-primary" href="about.html">Read Our Story</a>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap center">
         <h2>What is a TRIP12-related disorder?</h2>
-        <p class="section-intro">TRIP12-related disorder is a rare genetic condition caused by changes in the TRIP12 gene. It is often associated with developmental delay, intellectual disability, speech and language difficulties, and autism spectrum features. Because it is so rare, families frequently face long diagnostic journeys and significant out-of-pocket costs for the therapies and support their loved ones need. That's why we exist.</p>
-        <a class="btn btn-primary" href="about.html">About the Foundation</a>
+        <p class="section-intro">Every cell in your body constantly recycles its own proteins &mdash; billions of cells run this cleanup process every day &mdash; and the TRIP12 gene helps run it. When part of the gene is missing or changed, the effects reach across development: delays, intellectual disability, speech and language difficulties (some children are largely non-verbal), autism spectrum features, and in some children tremors or seizures. It is rare and only recently discovered, so families face long diagnostic journeys, thin research, and therapies that insurance doesn't fully cover.</p>
+        <a class="btn btn-primary" href="programs.html">How We Help</a>
       </div>
     </section>
 
@@ -247,18 +255,23 @@ about = f"""
     <div class="page-head">
       <div class="wrap">
         <h1>About the Foundation</h1>
-        <p>Founded by a family, built for families.</p>
+        <p>We're Isabella's family. This is our story &mdash; and the reason no other family should have to walk it alone.</p>
       </div>
     </div>
 
     <section>
       <div class="wrap prose">
-        <h2>Our mission</h2>
+        <h2>Our story</h2>
+        <p>Trip 12 Future Foundation began with our daughter, Isabella.</p>
+        <p>Isabella came into the world in October 2016 &mdash; an emergency delivery, three weeks in the NICU, and then home with what we were told was a clean bill of health. But around her first birthday, the questions started: developmental delays, daily tremors, eye problems, ear infections that came back month after month for years. We took on each one as it came, sure she'd grow out of it.</p>
+        <p>For years we chased answers through specialists, scans, and test after test &mdash; including a $5,000 genetic test that came back &ldquo;normal.&rdquo; Tens of thousands of dollars later, we had no diagnosis, no explanation, and a little girl whose challenges kept stacking up. When the pandemic shut down most testing and office visits, we felt defeated. We stopped searching for the cause and just treated symptoms.</p>
+        <p>Then, on the morning of October 18, 2021, one Zoom call with a genetic counselor changed everything. A clinical whole-exome sequence &mdash; a $22,000 test that insurance barely touched, and the one we almost didn't do &mdash; found what years of testing had missed: Isabella has a rare deletion in her TRIP12 gene. The news hit us like a ton of bricks. There was no cure, almost no research &mdash; a single published paper at the time &mdash; and, because the diagnosis was so new and so rare, not one state-funded program she qualified for. The floor fell out from under us.</p>
+        <p>What happened next is why this foundation exists. We taught ourselves the science, textbook by textbook. And we asked our community for help with the things insurance wouldn't touch: a seizure-alert service dog, a communication tablet to help a mostly non-verbal little girl find her words, private speech and behavioral therapy, a custom mouth guard. People gave what they could &mdash; some a dollar, because a dollar was what they had &mdash; and shared her story so others would too. It worked. It changed Isabella's life.</p>
+        <p>And it left us with a conviction we couldn't put down: every family that hears a diagnosis like this one hits the same wall of costs, unknowns, and closed doors &mdash; and most of them face it alone. So we did the paperwork, formed a board, and turned our family's fight into a public charity. What our community did for Isabella, Trip 12 Future Foundation now does for families across the country.</p>
+
+        <h2 style="margin-top:44px">Our mission</h2>
         <p>Trip 12 Future Foundation Inc. is organized to provide financial assistance, support services, and educational resources to individuals and families affected by the TRIP12 gene disorder and related neurodevelopmental conditions. Our work is designed to relieve financial hardship, advance health, and support families facing significant medical and developmental challenges associated with rare genetic disorders.</p>
         <p>We operate as a 501(c)(3) public charity and serve individuals throughout the United States.</p>
-
-        <h2 style="margin-top:44px">Why "Trip 12"?</h2>
-        <p>Our name comes from the TRIP12 gene. Changes in this gene cause a rare neurodevelopmental condition that affects children and families in profound ways &mdash; developmentally, medically, and financially. Families navigating a TRIP12 diagnosis often find few resources built specifically for them. We're working to change that.</p>
       </div>
     </section>
 
@@ -319,7 +332,7 @@ programs = f"""
     <section id="financial">
       <div class="wrap prose">
         <h2>1. Financial Assistance to Families</h2>
-        <p>We provide direct financial assistance to qualifying families to help cover medically necessary expenses that are not fully covered by insurance or other assistance programs. Eligible expenses may include:</p>
+        <p>We've been the family staring at these bills: the $22,000 diagnostic test insurance barely touched, the therapies with no state funding, the equipment nobody reimburses. That's exactly what this program is for &mdash; direct financial assistance to qualifying families for medically necessary expenses that are not fully covered by insurance or other assistance programs. Eligible expenses may include:</p>
         <ul>
           <li>Medical and specialist visits</li>
           <li>Occupational, physical, speech, or behavioral therapies</li>
@@ -335,7 +348,7 @@ programs = f"""
     <section class="alt" id="service-animals">
       <div class="wrap prose">
         <h2>2. Service Animal Support</h2>
-        <p>Service animals can be life-changing for individuals with neurological or developmental disabilities. We provide financial support related to the placement, training, and care of service animals that assist individuals affected by disabilities associated with genetic disorders.</p>
+        <p>This program exists because of a dog. Our daughter's companion animal put her to bed every night and steadied her anxiety through years without answers &mdash; and when we priced a trained seizure-alert service dog for her, the quote came to $30,000. Service animals can be life-changing for individuals with neurological or developmental disabilities, and their cost puts them out of reach for most families. We provide financial support related to the placement, training, and care of service animals that assist individuals affected by disabilities associated with genetic disorders.</p>
         <p>Eligible expenses may include training fees, placement costs, or related support services provided by qualified organizations. Applications for service animal support are reviewed using the same criteria and safeguards applied to all of our assistance programs.</p>
       </div>
     </section>
@@ -343,7 +356,7 @@ programs = f"""
     <section id="education">
       <div class="wrap prose">
         <h2>3. Education, Awareness &amp; Community Support</h2>
-        <p>We produce and distribute educational materials and conduct outreach to increase awareness of the TRIP12 gene disorder and the challenges affected families face. Our activities include:</p>
+        <p>When our daughter was diagnosed, there was a single published research paper on her condition &mdash; so we bought the textbooks and taught ourselves, one chapter at a time. No parent should have to start from zero. We produce and distribute educational materials and conduct outreach to increase awareness of the TRIP12 gene disorder and the challenges affected families face. Our activities include:</p>
         <ul>
           <li>Educational content distributed online and in print</li>
           <li>Community awareness initiatives</li>
@@ -452,7 +465,7 @@ donate = f"""
 
         <div style="margin-top:40px" class="prose">
           <h2>Where your money goes</h2>
-          <p>Trip 12 Future Foundation is run by an all-volunteer board &mdash; no director or officer receives any compensation. Administrative costs are kept to a minimum, so contributions go to program services: direct assistance to families, service animal support, and free education for the community.</p>
+          <p>We started this foundation as the family opening the medical bills, so we run it the way we wished someone had run one for us. An all-volunteer board &mdash; no director or officer receives any compensation &mdash; and administrative costs kept to a minimum, so contributions go to program services: direct assistance to families, service animal support, and free education for the community. When our own community gave &mdash; even a dollar at a time &mdash; it changed our daughter's life. Your gift does the same for the next family.</p>
           <h2 style="margin-top:36px">Tax-deductible giving</h2>
           <p>Trip 12 Future Foundation Inc. is a 501(c)(3) tax-exempt public charity (EIN {EIN}) listed in the IRS Tax Exempt Organization Search. Contributions are tax-deductible to the extent allowed by law. You will receive a written acknowledgment for your records.</p>
         </div>
