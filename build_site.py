@@ -589,7 +589,7 @@ contact = f"""
           </div>
           <div>
             <dt>Assistance applications</dt>
-            <dd>Email with subject line &ldquo;Assistance Application&rdquo; &mdash; see <a href="apply.html">how to apply</a>.</dd>
+            <dd>Apply online in about five minutes &mdash; see <a href="apply.html">how to apply</a>.</dd>
           </div>
           <div>
             <dt>Donations</dt>
