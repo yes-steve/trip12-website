@@ -2,7 +2,7 @@
 import os
 
 OUT = os.path.join(os.path.dirname(__file__), "site")
-EMAIL = "info@trip12foundation.org"  # PLACEHOLDER — replace when real inbox exists
+EMAIL = "info@trip12futurefoundation.org"  # PLACEHOLDER — replace when real inbox exists
 EIN = "41-2611886"
 
 LOGO = """<svg width="40" height="40" viewBox="0 0 48 48" role="img" aria-label="Trip 12 Future Foundation logo" xmlns="http://www.w3.org/2000/svg">
