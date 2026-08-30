@@ -288,3 +288,23 @@ h3 { font-family: var(--font-display); font-style: italic; font-weight: 800; col
   .hero .wrap { padding: 60px 20px 52px; }
   section { padding: 50px 0; }
 }
+
+/* ---------- Forms ---------- */
+.form-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 28px; box-shadow: var(--shadow); }
+.form-grid { display: grid; gap: 18px; }
+.form-row { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+.field label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 6px; color: var(--ink); }
+.field .hint { font-weight: 400; color: var(--ink-soft); font-size: 0.85rem; }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
+  width: 100%; box-sizing: border-box; font-family: var(--font-body); font-size: 1rem; color: var(--ink);
+  padding: 11px 14px; border: 1.5px solid #d5d4e0; border-radius: 10px; background: #fdfdfe;
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(139, 68, 224, 0.15); }
+.checkbox-field { display: flex; gap: 10px; align-items: flex-start; font-size: 0.95rem; color: var(--ink-soft); }
+.checkbox-field input { margin-top: 4px; width: 17px; height: 17px; accent-color: var(--purple); }
+.form-note { font-size: 0.88rem; color: var(--ink-soft); margin-top: 4px; }
+.hidden-field { display: none; }
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+section[id], [id="application-form"] { scroll-margin-top: 90px; }

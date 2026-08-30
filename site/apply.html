@@ -80,8 +80,8 @@
             <p>Include medical documentation confirming a qualifying diagnosis, documentation of financial need, and invoices, estimates, or receipts where applicable.</p>
           </li>
           <li>
-            <h3>Submit by email</h3>
-            <p>Send your application and documents to <a href="mailto:info@trip12futurefoundation.org">info@trip12futurefoundation.org</a> with the subject line &ldquo;Assistance Application.&rdquo;</p>
+            <h3>Submit your application online</h3>
+            <p>Use the <a href="#application-form">application form below</a> &mdash; it takes about five minutes. We'll reply with instructions for sending your supporting documents securely.</p>
           </li>
           <li>
             <h3>Board review</h3>
@@ -95,6 +95,37 @@
         <div class="notice" style="margin-top:26px">
           <strong>Fair for every family:</strong> Assistance decisions are made without regard to race, color, religion, sex, national origin, or any other protected classification. Any application involving a Foundation founder or family member is reviewed solely by our independent director.
         </div>
+      </div>
+    </section>
+
+    <section id="application-form">
+      <div class="wrap" style="max-width:760px">
+        <h2>Start your application</h2>
+        <p class="section-intro">This first step doesn't require any documents &mdash; just tell us who you are and what you need. Please don't include medical records or financial details here; we'll follow up with secure instructions for those.</p>
+        <form name="assistance-application" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="form-card form-grid">
+          <input type="hidden" name="form-name" value="assistance-application">
+          <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <div class="field"><label for="a-name">Your full name</label><input type="text" id="a-name" name="applicant_name" required></div>
+            <div class="field"><label for="a-email">Email</label><input type="email" id="a-email" name="email" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="a-phone">Phone <span class="hint">(optional)</span></label><input type="tel" id="a-phone" name="phone"></div>
+            <div class="field"><label for="a-city">City &amp; state</label><input type="text" id="a-city" name="city_state" required></div>
+          </div>
+          <div class="field"><label for="a-relation">Your relationship to the affected individual</label>
+            <select id="a-relation" name="relationship">
+              <option>Parent or guardian</option>
+              <option>I am the affected individual</option>
+              <option>Other family member</option>
+              <option>Caregiver or advocate</option>
+            </select>
+          </div>
+          <div class="field"><label for="a-request">What assistance are you requesting?</label><textarea id="a-request" name="request_description" placeholder="Describe the therapy, equipment, treatment, or support you need help with." required></textarea></div>
+          <div class="field"><label for="a-cost">Estimated cost <span class="hint">(if known)</span></label><input type="text" id="a-cost" name="estimated_cost" placeholder="e.g. $1,200 for 8 speech therapy sessions"></div>
+          <div class="checkbox-field"><input type="checkbox" id="a-ack" name="documentation_acknowledged" required><label for="a-ack">I understand that medical documentation confirming a qualifying diagnosis and documentation of financial need will be required before an application can be reviewed, and that the Foundation will contact me with instructions for providing them securely.</label></div>
+          <div><button type="submit" class="btn btn-primary">Submit Application</button></div>
+        </form>
       </div>
     </section>
 

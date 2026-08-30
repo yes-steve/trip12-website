@@ -76,6 +76,24 @@
       </div>
     </section>
 
+    <section class="alt">
+      <div class="wrap" style="max-width:760px">
+        <h2>Volunteer sign-up</h2>
+        <p class="section-intro">Tell us a bit about yourself and how you'd like to help &mdash; we'll reach out.</p>
+        <form name="volunteer" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="form-card form-grid">
+          <input type="hidden" name="form-name" value="volunteer">
+          <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <div class="field"><label for="v-name">Name</label><input type="text" id="v-name" name="name" required></div>
+            <div class="field"><label for="v-email">Email</label><input type="email" id="v-email" name="email" required></div>
+          </div>
+          <div class="field"><label for="v-city">City &amp; state <span class="hint">(optional)</span></label><input type="text" id="v-city" name="city_state"></div>
+          <div class="field"><label for="v-help">How would you like to help?</label><textarea id="v-help" name="how_to_help" placeholder="Events, fundraising, outreach, professional skills, spreading the word..." required></textarea></div>
+          <div><button type="submit" class="btn btn-primary">Sign Me Up</button></div>
+        </form>
+      </div>
+    </section>
+
     <section class="band">
       <div class="wrap" style="padding-top:56px;padding-bottom:56px">
         <h2>Have another idea?</h2>

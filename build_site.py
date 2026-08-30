@@ -118,6 +118,61 @@ ICON_HANDS = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke
 ICON_DOG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8b44e0" stroke-width="1.8" aria-hidden="true"><path d="M4 16c0-4 3-7 8-7s8 3 8 7v3H4v-3z"/><circle cx="9" cy="6" r="2.4"/><circle cx="15" cy="6" r="2.4"/><path d="M9 19v-2m6 2v-2"/></svg>'
 ICON_BOOK = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8b44e0" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21V5.5z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></svg>'
 
+def netlify_form(name, fields, button_label):
+    """Netlify-detected static form with honeypot + thanks redirect."""
+    return f"""<form name="{name}" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="form-card form-grid">
+          <input type="hidden" name="form-name" value="{name}">
+          <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+{fields}
+          <div><button type="submit" class="btn btn-primary">{button_label}</button></div>
+        </form>"""
+
+CONTACT_FORM = netlify_form("contact", f"""          <div class="form-row">
+            <div class="field"><label for="c-name">Name</label><input type="text" id="c-name" name="name" required></div>
+            <div class="field"><label for="c-email">Email</label><input type="email" id="c-email" name="email" required></div>
+          </div>
+          <div class="field"><label for="c-topic">Topic</label>
+            <select id="c-topic" name="topic">
+              <option>General question</option>
+              <option>Donations</option>
+              <option>Volunteering</option>
+              <option>Press / partnership</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="c-message">Message</label><textarea id="c-message" name="message" required></textarea></div>""",
+    "Send Message")
+
+VOLUNTEER_FORM = netlify_form("volunteer", f"""          <div class="form-row">
+            <div class="field"><label for="v-name">Name</label><input type="text" id="v-name" name="name" required></div>
+            <div class="field"><label for="v-email">Email</label><input type="email" id="v-email" name="email" required></div>
+          </div>
+          <div class="field"><label for="v-city">City &amp; state <span class="hint">(optional)</span></label><input type="text" id="v-city" name="city_state"></div>
+          <div class="field"><label for="v-help">How would you like to help?</label><textarea id="v-help" name="how_to_help" placeholder="Events, fundraising, outreach, professional skills, spreading the word..." required></textarea></div>""",
+    "Sign Me Up")
+
+APPLICATION_FORM = netlify_form("assistance-application", f"""          <div class="form-row">
+            <div class="field"><label for="a-name">Your full name</label><input type="text" id="a-name" name="applicant_name" required></div>
+            <div class="field"><label for="a-email">Email</label><input type="email" id="a-email" name="email" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="a-phone">Phone <span class="hint">(optional)</span></label><input type="tel" id="a-phone" name="phone"></div>
+            <div class="field"><label for="a-city">City &amp; state</label><input type="text" id="a-city" name="city_state" required></div>
+          </div>
+          <div class="field"><label for="a-relation">Your relationship to the affected individual</label>
+            <select id="a-relation" name="relationship">
+              <option>Parent or guardian</option>
+              <option>I am the affected individual</option>
+              <option>Other family member</option>
+              <option>Caregiver or advocate</option>
+            </select>
+          </div>
+          <div class="field"><label for="a-request">What assistance are you requesting?</label><textarea id="a-request" name="request_description" placeholder="Describe the therapy, equipment, treatment, or support you need help with." required></textarea></div>
+          <div class="field"><label for="a-cost">Estimated cost <span class="hint">(if known)</span></label><input type="text" id="a-cost" name="estimated_cost" placeholder="e.g. $1,200 for 8 speech therapy sessions"></div>
+          <div class="checkbox-field"><input type="checkbox" id="a-ack" name="documentation_acknowledged" required><label for="a-ack">I understand that medical documentation confirming a qualifying diagnosis and documentation of financial need will be required before an application can be reviewed, and that the Foundation will contact me with instructions for providing them securely.</label></div>""",
+    "Submit Application")
+
+
 # ---------------- HOME ----------------
 home = f"""
     <div class="hero">
@@ -348,8 +403,8 @@ apply = f"""
             <p>Include medical documentation confirming a qualifying diagnosis, documentation of financial need, and invoices, estimates, or receipts where applicable.</p>
           </li>
           <li>
-            <h3>Submit by email</h3>
-            <p>Send your application and documents to <a href="mailto:{EMAIL}">{EMAIL}</a> with the subject line &ldquo;Assistance Application.&rdquo;</p>
+            <h3>Submit your application online</h3>
+            <p>Use the <a href="#application-form">application form below</a> &mdash; it takes about five minutes. We'll reply with instructions for sending your supporting documents securely.</p>
           </li>
           <li>
             <h3>Board review</h3>
@@ -363,6 +418,14 @@ apply = f"""
         <div class="notice" style="margin-top:26px">
           <strong>Fair for every family:</strong> Assistance decisions are made without regard to race, color, religion, sex, national origin, or any other protected classification. Any application involving a Foundation founder or family member is reviewed solely by our independent director.
         </div>
+      </div>
+    </section>
+
+    <section id="application-form">
+      <div class="wrap" style="max-width:760px">
+        <h2>Start your application</h2>
+        <p class="section-intro">This first step doesn't require any documents &mdash; just tell us who you are and what you need. Please don't include medical records or financial details here; we'll follow up with secure instructions for those.</p>
+        {APPLICATION_FORM}
       </div>
     </section>
 """
@@ -430,6 +493,14 @@ involved = f"""
             <a class="more" href="mailto:{EMAIL}?subject=Our%20story">Reach out &rarr;</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap" style="max-width:760px">
+        <h2>Volunteer sign-up</h2>
+        <p class="section-intro">Tell us a bit about yourself and how you'd like to help &mdash; we'll reach out.</p>
+        {VOLUNTEER_FORM}
       </div>
     </section>
 
@@ -535,6 +606,29 @@ contact = f"""
         </dl>
       </div>
     </section>
+
+    <section class="alt">
+      <div class="wrap" style="max-width:760px">
+        <h2>Send us a message</h2>
+        <p class="section-intro">The fastest way to reach us &mdash; your message goes straight to the board.</p>
+        {CONTACT_FORM}
+      </div>
+    </section>
+"""
+
+# ---------------- THANKS ----------------
+thanks = f"""
+    <div class="hero">
+      <div class="wrap" style="padding-top:80px;padding-bottom:72px">
+        <span class="eyebrow">Message received</span>
+        <h1>Thank you!</h1>
+        <p class="lede">We got your submission and a real person &mdash; one of our board members &mdash; will get back to you as soon as we can, usually within a few days.</p>
+        <div class="btn-row">
+          <a class="btn btn-amber" href="index.html">Back to Home</a>
+          <a class="btn btn-secondary" href="programs.html">Explore Our Programs</a>
+        </div>
+      </div>
+    </div>
 """
 
 pages = [
@@ -555,7 +649,9 @@ pages = [
     ("gallery.html", "Gallery | Trip 12 Future Foundation",
      "Photos and moments from the Trip 12 Future Foundation community.", gallery),
     ("contact.html", "Contact | Trip 12 Future Foundation",
-     "Contact Trip 12 Future Foundation — email, assistance applications, and donation questions.", contact),
+     "Contact Trip 12 Future Foundation — send a message, apply for assistance, or ask about donations.", contact),
+    ("thanks.html", "Thank You | Trip 12 Future Foundation",
+     "Thanks — we received your submission and will be in touch soon.", thanks),
 ]
 
 # favicon
