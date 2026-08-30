@@ -2,8 +2,29 @@
 import os
 
 OUT = os.path.join(os.path.dirname(__file__), "site")
-EMAIL = "info@trip12futurefoundation.org"  # PLACEHOLDER — replace when real inbox exists
+EMAIL = "info@trip12futurefoundation.org"  # NOTE: forwarding not yet configured (ImprovMX pending)
 EIN = "41-2611886"
+SITE_URL = "https://trip12futurefoundation.org"
+STORY_VIDEO_ID = "iUshZIV6fVE"  # Steve's fundraising film for Isabella
+
+JSONLD = f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Trip 12 Future Foundation Inc.",
+  "alternateName": "Trip 12 Future Foundation",
+  "url": "{SITE_URL}/",
+  "logo": "{SITE_URL}/img/favicon.svg",
+  "image": "{SITE_URL}/img/share-card.png",
+  "taxID": "{EIN}",
+  "nonprofitStatus": "Nonprofit501c3",
+  "email": "{EMAIL}",
+  "foundingDate": "2025",
+  "address": {{ "@type": "PostalAddress", "addressLocality": "Clinton", "addressRegion": "UT", "addressCountry": "US" }},
+  "areaServed": "US",
+  "description": "501(c)(3) public charity providing financial assistance, service animal support, and education for individuals and families affected by TRIP12-related disorders and related neurodevelopmental conditions."
+}}
+</script>"""
 
 LOGO = """<svg width="40" height="40" viewBox="0 0 48 48" role="img" aria-label="Trip 12 Future Foundation logo" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -85,7 +106,7 @@ FOOTER = f"""<footer class="site-footer">
     </div>
   </div>
   <div class="footer-legal">
-    <div class="wrap">Trip 12 Future Foundation Inc. is a 501(c)(3) tax-exempt public charity. EIN: {EIN}. Contributions are tax-deductible to the extent allowed by law. &copy; 2026 Trip 12 Future Foundation Inc. All rights reserved.</div>
+    <div class="wrap">Trip 12 Future Foundation Inc. is a 501(c)(3) tax-exempt public charity. EIN: {EIN}. Contributions are tax-deductible to the extent allowed by law. &copy; 2026 Trip 12 Future Foundation Inc. All rights reserved. &middot; <a href="privacy.html">Privacy Policy</a></div>
   </div>
 </footer>"""
 
@@ -97,8 +118,22 @@ def page(filename, title, description, body):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content="{description}">
+  <link rel="canonical" href="{SITE_URL}/{'' if filename == 'index.html' else filename}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Trip 12 Future Foundation">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{description}">
+  <meta property="og:url" content="{SITE_URL}/{'' if filename == 'index.html' else filename}">
+  <meta property="og:image" content="{SITE_URL}/img/share-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{description}">
+  <meta name="twitter:image" content="{SITE_URL}/img/share-card.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  {JSONLD}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -268,6 +303,12 @@ about = f"""
         <p>Then, on the morning of October 18, 2021, one Zoom call with a genetic counselor changed everything. A clinical whole-exome sequence &mdash; a $22,000 test that insurance barely touched, and the one we almost didn't do &mdash; found what years of testing had missed: Isabella has a rare deletion in her TRIP12 gene. The news hit us like a ton of bricks. There was no cure, almost no research &mdash; a single published paper at the time &mdash; and, because the diagnosis was so new and so rare, not one state-funded program she qualified for. The floor fell out from under us.</p>
         <p>What happened next is why this foundation exists. We taught ourselves the science, textbook by textbook. And we asked our community for help with the things insurance wouldn't touch: a seizure-alert service dog, a communication tablet to help a mostly non-verbal little girl find her words, private speech and behavioral therapy, a custom mouth guard. People gave what they could &mdash; some a dollar, because a dollar was what they had &mdash; and shared her story so others would too. It worked. It changed Isabella's life.</p>
         <p>And it left us with a conviction we couldn't put down: every family that hears a diagnosis like this one hits the same wall of costs, unknowns, and closed doors &mdash; and most of them face it alone. So we did the paperwork, formed a board, and turned our family's fight into a public charity. What our community did for Isabella, Trip 12 Future Foundation now does for families across the country.</p>
+
+        <h3 style="margin-top:38px">Watch Isabella's story</h3>
+        <p>The film below is the fundraiser that started it all &mdash; Isabella's journey, an introduction to the TRIP12 gene, and the community that showed up for her.</p>
+        <div class="video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/{STORY_VIDEO_ID}" title="Isabella's story — the TRIP12 fundraising film" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
 
         <h2 style="margin-top:44px">Our mission</h2>
         <p>Trip 12 Future Foundation Inc. is organized to provide financial assistance, support services, and educational resources to individuals and families affected by the TRIP12 gene disorder and related neurodevelopmental conditions. Our work is designed to relieve financial hardship, advance health, and support families facing significant medical and developmental challenges associated with rare genetic disorders.</p>
@@ -629,6 +670,53 @@ contact = f"""
     </section>
 """
 
+# ---------------- PRIVACY ----------------
+privacy = f"""
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Privacy Policy</h1>
+        <p>Plain English, because that's how we'd want it explained to us. Effective August 30, 2026.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap prose">
+        <h2>What we collect</h2>
+        <p>When you use a form on this site (contact, volunteer sign-up, or assistance application), we collect the information you type in &mdash; typically your name, email address, and whatever you choose to tell us. Our website host (Netlify) also keeps standard server logs, which include things like IP addresses, for security and reliability.</p>
+        <p><strong>Please don't submit medical records or financial documents through this website.</strong> Our application form deliberately asks only for basic information; if your application moves forward, we'll contact you with instructions for providing supporting documents.</p>
+
+        <h2 style="margin-top:40px">How we use it</h2>
+        <p>We use what you send us for exactly one purpose: running the Foundation &mdash; responding to your message, reviewing assistance applications, and coordinating volunteers. Assistance applications are shared only with our Board of Directors (or a designated review committee) and are kept confidential per our recordkeeping policies.</p>
+        <p>We never sell, rent, or trade your information. We don't send marketing you didn't ask for.</p>
+
+        <h2 style="margin-top:40px">Cookies &amp; tracking</h2>
+        <p>This site sets no cookies of its own and runs no advertising or analytics trackers. The video on our About page is embedded using YouTube's privacy-enhanced mode, which avoids tracking cookies unless you play the video; playing it is subject to <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>.</p>
+
+        <h2 style="margin-top:40px">Where it lives</h2>
+        <p>Form submissions are stored securely with Netlify, our website provider, and are accessible only to Foundation board members. You can ask us to delete your submitted information at any time.</p>
+
+        <h2 style="margin-top:40px">Questions or requests</h2>
+        <p>Email <a href="mailto:{EMAIL}">{EMAIL}</a> to ask what we have, correct it, or have it deleted. If we ever change this policy meaningfully, we'll update this page and the effective date above.</p>
+      </div>
+    </section>
+"""
+
+# ---------------- 404 ----------------
+notfound = f"""
+    <div class="hero">
+      <div class="wrap" style="padding-top:80px;padding-bottom:72px">
+        <span class="eyebrow">404 &mdash; page not found</span>
+        <h1>This page took a wrong turn</h1>
+        <p class="lede">The page you're looking for doesn't exist or has moved. But everything important is one click away.</p>
+        <div class="btn-row">
+          <a class="btn btn-amber" href="/">Go Home</a>
+          <a class="btn btn-secondary" href="/apply.html">Apply for Assistance</a>
+          <a class="btn btn-secondary" href="/donate.html">Donate</a>
+        </div>
+      </div>
+    </div>
+"""
+
 # ---------------- THANKS ----------------
 thanks = f"""
     <div class="hero">
@@ -665,6 +753,10 @@ pages = [
      "Contact Trip 12 Future Foundation — send a message, apply for assistance, or ask about donations.", contact),
     ("thanks.html", "Thank You | Trip 12 Future Foundation",
      "Thanks — we received your submission and will be in touch soon.", thanks),
+    ("privacy.html", "Privacy Policy | Trip 12 Future Foundation",
+     "What information Trip 12 Future Foundation collects through this website and how we use and protect it.", privacy),
+    ("404.html", "Page Not Found | Trip 12 Future Foundation",
+     "The page you're looking for doesn't exist.", notfound),
 ]
 
 # favicon
@@ -673,5 +765,23 @@ with open(os.path.join(OUT, "img", "favicon.svg"), "w") as f:
 
 for fn, title, desc, body in pages:
     page(fn, title, desc, body)
+
+# sitemap.xml + robots.txt (exclude thanks + 404 from sitemap)
+import datetime
+today = datetime.date.today().isoformat()
+sitemap_pages = [fn for fn, *_ in pages if fn not in ("thanks.html", "404.html")]
+urls = "\n".join(
+    f"  <url><loc>{SITE_URL}/{'' if fn == 'index.html' else fn}</loc><lastmod>{today}</lastmod></url>"
+    for fn in sitemap_pages
+)
+with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
+    f.write(f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urls}
+</urlset>
+""")
+with open(os.path.join(OUT, "robots.txt"), "w") as f:
+    f.write(f"User-agent: *\nAllow: /\nDisallow: /thanks.html\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+print("wrote sitemap.xml, robots.txt")
 
 print("done")

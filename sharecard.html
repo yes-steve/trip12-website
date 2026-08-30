@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><style>
+@font-face { font-family: Archivo; font-style: italic; font-weight: 900; src: url("node_modules/@fontsource/archivo/files/archivo-latin-900-italic.woff2") format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2"); }
+body { margin:0; width:1200px; height:630px; font-family:Inter,sans-serif; color:#fff; overflow:hidden;
+  background: radial-gradient(700px 400px at 8% -10%, rgba(224,33,138,.4), transparent 60%),
+              radial-gradient(700px 450px at 95% 115%, rgba(61,123,247,.42), transparent 60%),
+              radial-gradient(500px 320px at 55% 45%, rgba(139,68,224,.22), transparent 65%), #0b0b12;
+  display:flex; align-items:center; justify-content:center; }
+.inner { display:flex; align-items:center; gap:56px; padding:0 90px; }
+.text h1 { font-family:Archivo; font-style:italic; font-weight:900; font-size:74px; line-height:1.02; margin:0 0 22px; text-transform:uppercase; }
+.text .bar { width:150px; height:8px; background:linear-gradient(120deg,#e0218a,#8b44e0,#3d7bf7); border-radius:4px; transform:skewX(-20deg); margin-bottom:26px; }
+.text p { font-size:29px; color:#c9c9d9; margin:0 0 20px; max-width:640px; line-height:1.4; }
+.text .badge { display:inline-block; font-size:19px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#f7e44a; border:2px solid rgba(247,228,74,.5); border-radius:999px; padding:8px 22px; }
+</style></head><body>
+<div class="inner">
+  <svg width="230" height="230" viewBox="0 0 48 48"><defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E0218A"/><stop offset="50%" stop-color="#8B44E0"/><stop offset="100%" stop-color="#3D7BF7"/></linearGradient>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3D7BF7"/><stop offset="55%" stop-color="#8B44E0"/><stop offset="100%" stop-color="#E0218A"/></linearGradient></defs>
+    <rect x="1.5" y="1.5" width="45" height="45" rx="11" fill="#14141d" stroke="url(#g1)" stroke-width="2"/>
+    <path d="M16 5 C 34 15, 16 31, 33 43" fill="none" stroke="url(#g1)" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M32 5 C 14 15, 32 31, 15 43" fill="none" stroke="url(#g2)" stroke-width="3.4" stroke-linecap="round"/>
+    <rect x="20" y="10.6" width="8" height="2.4" rx="1.2" fill="#F7E44A"/><rect x="20" y="22.8" width="8" height="2.4" rx="1.2" fill="#F7E44A"/><rect x="20" y="35.2" width="8" height="2.4" rx="1.2" fill="#F7E44A"/></svg>
+  <div class="text">
+    <h1>Trip 12 Future Foundation</h1>
+    <div class="bar"></div>
+    <p>Hope and help for families facing TRIP12-related disorders.</p>
+    <span class="badge">501(c)(3) public charity</span>
+  </div>
+</div>
+</body></html>
